@@ -1,8 +1,12 @@
 import './App.css';
+import NavBar from './components/NavBar';
+import Search from './components/Search'
 
 function App() {
   return (
-    <div className="App">
+    <div>
+      <NavBar/>
+      <Search/>
     </div>
   );
 }
