@@ -13,6 +13,12 @@
   --color-white-dark-mode: hsl(0, 33%, 99%);
 }
 
+.dark__modify{
+  background-color: var(--color-very-dark-blue-dark);
+  color: var(--color-white-dark-mode);
+  font-family: 'Poppins', sans-serif;
+}
+
 body{
   font-family: 'Poppins', sans-serif;
   background-color: var(--color-very-dark-blue-dark);
