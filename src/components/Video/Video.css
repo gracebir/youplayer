@@ -1,0 +1,11 @@
+
+
+@media screen and (min-width:45em) {
+    .video{
+        padding: .5em 1em;
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 1.5rem;
+    }
+}
+
