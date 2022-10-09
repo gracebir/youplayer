@@ -9,7 +9,7 @@ function Nav() {
       <Link className='navLogo' to='/'>YouPlayer</Link>
       <Search/>
       <div>
-        <h4>logos</h4>
+        <Link to="/login" className='nav__login'>Login</Link>
       </div>
     </nav>
   )
