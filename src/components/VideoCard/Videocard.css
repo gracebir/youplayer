@@ -21,6 +21,10 @@
     gap: .5em;
 }
 
+.video__description:hover{
+    color: #d1d1d1;
+}
+
 .video__detail > h5{
     font-size: .8em;
 }
