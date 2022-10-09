@@ -1,10 +1,21 @@
 import React from 'react'
 import './Auth.css'
+import { GoogleLogin } from 'react-google-login'
+import { clientId } from '../../youtube'
 
-function Auth() {
+function Auth({onSuccess, onFailure}) {
   return (
-    <div>
-      <h1>log in</h1>
+    <div className='auth'>
+        <div className='auth__container'>
+            <GoogleLogin
+                clientId={clientId}
+                buttonText='Sign in with google'
+                onFailure={onFailure}
+                onSuccess={onSuccess}
+                cookiePolice={'single_host_origin'}
+                isSignedIn={true}
+            />
+        </div>
     </div>
   )
 }
