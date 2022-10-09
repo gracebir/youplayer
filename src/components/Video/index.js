@@ -3,7 +3,6 @@ import Videocard from '../VideoCard'
 import './Video.css';
 // UC8butISFwT-Wl7EV0hUK0BQ
 function Video({ videos }) {
-  console.log(videos);
   return (
     <div className='video'>
       {videos?.map((video, i)=>(

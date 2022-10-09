@@ -11,3 +11,15 @@ nav{
     text-decoration: none;
     color: #fff;
 }
+
+.nav__login{
+    text-decoration: none;
+    padding: .6em 1em;
+    border: 1px solid #fff;
+    border-radius: 50px;
+    color: #fff;
+}
+
+.nav__login:hover{
+    background-color: black;
+}

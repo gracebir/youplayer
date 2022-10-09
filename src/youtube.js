@@ -1,7 +1,8 @@
 import axios from "axios";
 
 const URL = process.env.REACT_APP_URL;
-const API = process.env.REACT_APP_API_KEY;
+export const API = process.env.REACT_APP_API_KEY;
+export const clientId = process.env.REACT_APP_CLIENT_ID;
 
 export const youtube_seach = axios.create({
     baseURL: URL,
@@ -17,7 +18,7 @@ export const youtube_subscrition = axios.create({
     baseURL: URL,
     params:{
         part: "snippet",
-        mySubscribers:true,
+        mine: true,
         maxResults: 50,
         key: API
     },
