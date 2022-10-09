@@ -1,6 +1,8 @@
 .video__card{
     cursor: pointer;
     max-width: 18em;
+    text-decoration: none;
+    color: white;
 }
 
 .video__thumnail{

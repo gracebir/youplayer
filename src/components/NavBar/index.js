@@ -1,11 +1,12 @@
 import React from 'react'
 import './Navbar.css'
 import Search from '../Search'
+import { Link } from 'react-router-dom';
 
 function Nav() {
   return (
     <nav>
-      <h2>YouPlayer</h2>
+      <Link className='navLogo' to='/'>YouPlayer</Link>
       <Search/>
       <div>
         <h4>logos</h4>

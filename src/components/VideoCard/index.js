@@ -1,11 +1,12 @@
 import React from 'react'
 import './Videocard.css'
+import {Link} from 'react-router-dom'
 
 function Videocard({
-    thumnail, title, author, auther_img
+    thumnail, title, author, auther_img, videoId
 }) {
   return (
-    <div className='video__card'>
+    <Link to={`/${videoId}`} className='video__card'>
       <div className="video__thumnail">
         <img className='thumnail__img' src={thumnail} alt="thumnail" />
       </div>
@@ -18,7 +19,7 @@ function Videocard({
             </div>
         </div>
       </div>
-    </div>
+    </Link>
   )
 }
 
