@@ -13,11 +13,11 @@ export const youtube_seach = axios.create({
     headers: {}
 })
 
-export const youtube_channel = axios.create({
+export const youtube_subscrition = axios.create({
     baseURL: URL,
     params:{
         part: "snippet",
-        id: "UC8butISFwT-Wl7EV0hUK0BQ",
+        mySubscribers:true,
         maxResults: 50,
         key: API
     },
