@@ -1,15 +1,15 @@
 import React, { useState } from 'react'
 import './Search.css'
 
-function Search() {
-  const [search, setSearch] = useState("react")
+function Search({search}) {
+  const [searchText, setSearchText] = useState("react")
   const onSearch = (keyword) => {
-    console.log(keyword);
+    search(keyword)
   }
   return (
     <div className='search__form'>
-      <input className='search__input dark__modify' placeholder='search' type="text" onChange={(e) => setSearch(e.target.value)} />
-      <button className='btn__search dark__modify' onClick={()=>onSearch(search)}>search</button>
+      <input className='search__input dark__modify' placeholder='search' type="text" onChange={(e) => setSearchText(e.target.value)} />
+      <button className='btn__search dark__modify' onClick={()=>onSearch(searchText)}>search</button>
     </div>
   )
 }
