@@ -15,6 +15,7 @@ import { gapi } from 'gapi-script';
 
 function App() {
   const [videos, setVideos] = useState([])
+  const [GoogleAuth, setGoogleAuth] = useState();
 
   // onsearch function
   const search = async (keywork) => {
@@ -28,7 +29,13 @@ function App() {
 
   // get subscription data
   const subscription = async () => {
-    const response = await youtube_subscrition.get('/subscriptions');
+    const response = await youtube_subscrition.get('/activities',{
+      config:{
+        headers:{
+          Authorization: `Bearer ${GoogleAuth?.currentUser?.le?.accessToken}`
+        }
+      }
+    });
     setVideos(response.data.items)
   }
 
@@ -45,9 +52,14 @@ function App() {
       apiKey: API,
       clientId,
       scope:'https://www.googleapis.com/auth/youtube.force-ssl',
-
+      discoveryDocs: ['https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest']
+    })
+    .then(()=>{
+      setGoogleAuth(gapi.auth2.getAuthInstance());
     })
   }
+
+  console.log('auth token',GoogleAuth?.currentUser?.le?.accessToken);
 
   useEffect(()=>{
     subscription()
