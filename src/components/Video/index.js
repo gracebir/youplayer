@@ -5,15 +5,19 @@ import './Video.css';
 function Video({ videos }) {
   return (
     <div className='video'>
-      {videos?.map((video, i)=>(
-         <Videocard 
-          key={i}
-          videoId={video.id.videoId}
-          thumnail={video.snippet.thumbnails.high.url}
-          title={video.snippet.title}
-          author={video.snippet.channelTitle}
-         />
-      ))}
+      {
+        videos.length === 0 ? (
+          <h1>Loading ....</h1>
+        ): videos?.map((video, i)=>(
+            <Videocard 
+            key={i}
+            videoId={video.id.videoId}
+            thumnail={video.snippet.thumbnails.high.url}
+            title={video.snippet.title}
+            author={video.snippet.channelTitle}
+            />
+       ))
+      }
     </div>
   )
 }

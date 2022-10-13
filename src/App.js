@@ -13,10 +13,10 @@ import PlayVideo from './components/PlayVideo';
 import Auth from './components/Auth';
 import { gapi } from 'gapi-script';
 
+const token = localStorage.getItem('user');
+
 function App() {
   const [videos, setVideos] = useState([])
-  const [GoogleAuth, setGoogleAuth] = useState();
-
   // onsearch function
   const search = async (keywork) => {
     const response = await youtube_seach.get('/search',{
@@ -29,18 +29,21 @@ function App() {
 
   // get subscription data
   const subscription = async () => {
-    const response = await youtube_subscrition.get('/activities',{
-      config:{
+    try {
+      const response = await youtube_subscrition.get('/activities',{
         headers:{
-          Authorization: `Bearer ${GoogleAuth?.currentUser?.le?.accessToken}`
+          'Authorization':`Bearer ${token}`
         }
-      }
-    });
-    setVideos(response.data.items)
+      });
+      setVideos(response.data.items)
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   const onSuccess = (res) =>{
       console.log("LOGIN SUCCESS! Current user", res.profileObj);
+      localStorage.setItem("user",res.accessToken)
   }
 
   const onFailure = (res) =>{
@@ -54,12 +57,9 @@ function App() {
       scope:'https://www.googleapis.com/auth/youtube.force-ssl',
       discoveryDocs: ['https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest']
     })
-    .then(()=>{
-      setGoogleAuth(gapi.auth2.getAuthInstance());
-    })
   }
 
-  console.log('auth token',GoogleAuth?.currentUser?.le?.accessToken);
+  console.log(videos);
 
   useEffect(()=>{
     subscription()
