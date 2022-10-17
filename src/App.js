@@ -28,7 +28,7 @@ function App() {
 
   // get subscription data
   const subscription = async () => {
-    fetch(`https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&myRating=like&maxResults=15&key=${API}&access_token=${token}`)
+    fetch(`https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&myRating=like&maxResults=50&key=${API}&access_token=${token}`)
     .then(response=>response.json())
     .then(data=>{setVideos(data.items)})
   }
