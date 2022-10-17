@@ -33,9 +33,6 @@ function App() {
     .then(data=>{setVideos(data.items)})
   }
 
-  console.log(videos)
-  console.log(token);
-
   const onSuccess = (res) =>{
       console.log("LOGIN SUCCESS! Current user", res.profileObj);
       localStorage.setItem("user",res.accessToken)

@@ -11,7 +11,7 @@ function Video({ videos }) {
         ): videos?.map((video, i)=>(
             <Videocard 
             key={i}
-            videoId={video.id.videoId}
+            videoId={video.id ? video.id : video.id.videoId }
             thumnail={video.snippet.thumbnails.high.url}
             title={video.snippet.title}
             author={video.snippet.channelTitle}
