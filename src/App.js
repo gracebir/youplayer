@@ -51,8 +51,6 @@ function App() {
     })
   }
 
-  console.log(videos);
-
   useEffect(()=>{
     subscription()
     gapi.load("client:auth2", start)
