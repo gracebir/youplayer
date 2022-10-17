@@ -18,7 +18,7 @@ export const youtube_subscrition = axios.create({
     baseURL: URL,
     params:{
         part: "snippet",
-        mine: true,
+        myRating: 'like',
         maxResults: 50,
         key: API
     },

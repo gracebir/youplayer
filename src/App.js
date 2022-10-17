@@ -4,7 +4,6 @@ import NavBar from './components/NavBar';
 import Video from './components/Video';
 import { 
   youtube_seach, 
-  youtube_subscrition, 
   clientId, 
   API 
 } from './youtube'
@@ -29,17 +28,13 @@ function App() {
 
   // get subscription data
   const subscription = async () => {
-    try {
-      const response = await youtube_subscrition.get('/activities',{
-        headers:{
-          'Authorization':`Bearer ${token}`
-        }
-      });
-      setVideos(response.data.items)
-    } catch (error) {
-      console.log(error);
-    }
+    fetch(`https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&myRating=like&maxResults=15&key=${API}&access_token=${token}`)
+    .then(response=>response.json())
+    .then(data=>{setVideos(data.items)})
   }
+
+  console.log(videos)
+  console.log(token);
 
   const onSuccess = (res) =>{
       console.log("LOGIN SUCCESS! Current user", res.profileObj);

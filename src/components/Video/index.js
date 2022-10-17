@@ -6,7 +6,7 @@ function Video({ videos }) {
   return (
     <div className='video'>
       {
-        videos.length === 0 ? (
+        videos?.length === 0 ? (
           <h1>Loading ....</h1>
         ): videos?.map((video, i)=>(
             <Videocard 
