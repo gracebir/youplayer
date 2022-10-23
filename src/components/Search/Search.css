@@ -1,6 +1,7 @@
 .search__form{
     display: flex;
-    gap: .2em;
+    gap: .3em;
+
 }
 
 .dark__modify{
@@ -27,5 +28,28 @@
 
 .btn__search:hover{
     background-color: black;
+}
+
+@media screen and (max-width: 65.5em){
+    .search__input{
+        width: 24em;
+    }
+}
+
+@media screen and (max-width: 56em){
+    .search__input{
+        width: 15em;
+    }
+
+
+    .search__form{
+        transition: .3s ease-in-out;
+        overflow: hidden;
+        opacity: 0;
+    }
+
+    .search__form.search-active{
+       opacity: 1;
+    }
 }
 

@@ -4,14 +4,23 @@ import Search from '../Search'
 import { Link } from 'react-router-dom';
 
 function Nav({search}) {
+  const [isactive, setIsactive] = React.useState(false);
+  
   return (
-    <nav>
+    <header>
       <Link className='navLogo' to='/'>YouPlayer</Link>
-      <Search search={search}/>
-      <div>
-        <Link to="/login" className='nav__login'>Login</Link>
+      <div className="menu" onClick={()=> setIsactive(!isactive)}>
+        <div className="line"></div>
+        <div className="line"></div>
+        <div className="line"></div>
       </div>
-    </nav>
+      <nav className={isactive ? `nav-active`: ``}>
+        <Search search={search} isactive={isactive}/>
+        <div>
+          <Link to="/login" className={isactive ? 'nav__login-active': 'nav__login'}>Login</Link>
+        </div>
+      </nav>
+    </header>
   )
 }
 
